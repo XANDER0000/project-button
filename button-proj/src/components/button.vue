@@ -7,16 +7,16 @@
             'padding': small ? '10px 15px' : large ? '18px 30px' : '15px 20px' ,
             'width': width ? `${width}` : 'auto',
             ///////////
-            'border': border ? `1.5px solid ${BackColor}` : 'none',
+            'border': border ? `1.5px solid ${backgroundColor}` : 'none',
             'border-radius': radius ? `${radius}` : 'none',
             ///////////
-            'transition': animate ? `${animate} all ease-in-out` : 'none',
+            'transition': transition ? `${transition} all ease-in-out` : 'none',
             ///////////
             'cursor': disabled ? 'not-allowed' : 'pointer',
             'all': disabled ? 'property' : 'pointer',
             ///////////
-            'color': color,
-            'background': !border ? BackColor : 'none',
+            'color': textColor,
+            'background': !border ? backgroundColor : border && backgroundColorHover ? backgroundColor: 'none',
             ///////////
         }"
         >{{ text }}</button>
@@ -39,7 +39,7 @@ export default {
       default: ''
     },
 
-    animate: {
+    transition: {
       type: String,
       default: ''
     },
@@ -49,39 +49,34 @@ export default {
       default: ''
     },
 
-    color: {
+    textColor: {
         type: String,
         default: ''
     },
 
-    ColorHover: {
+    textColorHover: {
         type: String,
         default: '',
     },
 
-     TextColorHover2: {
+     textColorHover2: {
         type: String,
         default: 'red',
     },
 
-    BackColorHover2: {
+    backgroundColorHover2: {
       type: String,
       default: 'red',
     },
 
-    BackColor: {
+    backgroundColor: {
         type: String,
         default: ''
     },
 
-    BackColorHover: {
+    backgroundColorHover: {
       type: String,
       default: ''
-    },
-
-    size: {
-        type: Boolean,
-        default: false
     },
 
     small: {
@@ -99,37 +94,12 @@ export default {
         default: false
     },
 
-    stat_small: {
-        type: Boolean,
-        default: false
-    },
-
-    stat_medium: {
-        type: Boolean,
-        default: false
-    },
-
-    stat_large: {
-        type: Boolean,
-        default: false
-    },
-
-    full_width: {
-        type: Boolean,
-        default: false
-    },
-
     border: {
       type: Boolean,
       default: false
     },
 
-     radius: {
-      type: Boolean,
-      default: false
-    },
-
-    animate: {
+    transition: {
         type: Boolean,
         default: false
     },
@@ -138,30 +108,13 @@ export default {
         type: Boolean,
         default: false
     },
-
-    id: {
-      type: String
-    },
-   
-    readonly: {
-      type: Boolean,
-      default: false
-    },
-    type: {
-      type: String,
-      default: 'text'
-    },
-    isActive: {
-      type: Boolean,
-      default: false
-    }
   },
   data: () => ({
     text: '',
-    color: '',
-    BackColor: '',
-    BackColorHover: '',
-    ColorHover: '',
+    textColor: '',
+    backgroundColor: '',
+    backgroundColorHover: '',
+    textColorHover: '',
     width: '',
     radius: '',
   }),
@@ -180,15 +133,15 @@ export default {
     },
 
     onHover() {
-      this.TextColorHover2 = this.color,
-      this.BackColorHover2 = this.BackColor,
-      this.color = this.ColorHover,
-      this.BackColor = this.BackColorHover
+      this.textColorHover2 = this.textColor,
+      this.backgroundColorHover2 = this.backgroundColor,
+      this.textColor = this.textColorHover,
+      this.backgroundColor = this.backgroundColorHover
     },
 
     onLeave() {
-      this.color = this.TextColorHover2,
-      this.BackColor = this.BackColorHover2
+      this.textColor = this.textColorHover2,
+      this.backgroundColor = this.backgroundColorHover2
     },
   }
 }

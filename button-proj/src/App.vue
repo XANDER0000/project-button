@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <ButtonStyle border text="Привет!"/>
+    <ButtonStyle border textColorHover="#fff" backgroundColorHover="blue" transition=".2s" text="Привет!"/>
 
-    <ButtonStyle BackColor="blue" BackColorHover="blue" text="Привет!"/>
+    <ButtonStyle backgroundColor="blue" backgroundColorHover="blue" text="Привет!"/>
 
     <ButtonStyle small text="Привет!"/>
 
@@ -16,13 +16,13 @@
 
     <ButtonStyle radius="30px" text="Привет!"/>
 
-    <ButtonStyle color="blue" ColorHover="blue" text="Привет!"/>
+    <ButtonStyle textColor="blue" textColorHover="blue" text="Привет!"/>
 
-    <ButtonStyle BackColorHover="blue" animate=".2s" text="Привет!"/>
+    <ButtonStyle backgroundColorHover="blue" transition=".2s" text="Привет!"/>
 
-    <ButtonStyle ColorHover="blue" animate=".2s" text="Привет!"/>
+    <ButtonStyle textColorHover="blue" transition=".2s" text="Привет!"/>
 
-    <ButtonStyle disabled animate=".2s" text="Привет!"/>
+    <ButtonStyle disabled transition=".2s" text="Привет!"/>
   </div>
 </template>
 
